@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Exibindo o link após a conclusão de uma ação, por exemplo, ao verificar o texto
     function mostrarLink() {
         const link = document.createElement('p');
-        link.innerHTML = 'Para acessar sua aplicação, clique aqui: <a href="https://inclusive-com-1.onrender.com" target="_blank">Acesse o curso</a>';
+        link.innerHTML = 'Para acessar sua aplicação, clique aqui: <a href="https://inclusive-com-1.onrender.com/curso" target="_blank">Acesse o curso</a>';
         document.body.appendChild(link); // Adiciona o link ao final da página
     }
 
