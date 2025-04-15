@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Módulo 2 - Alternar entre janelas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    h1 {
+      color: #4CAF50;
+    }
+
+    .teclado {
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    .tecla {
+      display: inline-block;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      padding: 15px 25px;
+      margin: 10px;
+      font-size: 1.2em;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+
+    .tecla.ativa {
+      background-color: #4CAF50;
+      color: white;
+      border-color: #45a049;
+      box-shadow: 0 0 10px #4CAF50;
+    }
+
+    .instrucoes {
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+
+    .feedback {
+      font-size: 1.3em;
+      color: #2196F3;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .parabens {
+      color: #4CAF50;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    #nextModule {
+      display: none;
+      margin-top: 30px;
+      padding: 15px;
+      width: 100%;
+      font-size: 1.2em;
+      border-radius: 8px;
+      border: none;
+      background-color: #2196F3;
+      color: white;
+      cursor: pointer;
+    }
+
+    #nextModule:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Módulo 2 - Alternar Entre Janelas</h1>
+      <p>Agora vamos aprender a trocar de janela com o atalho <strong>ALT + TAB</strong></p>
+    </header>
+
+    <div class="instrucoes">
+      <p>Para alternar entre janelas ou programas abertos no seu computador, você pode usar o atalho <strong>ALT + TAB</strong>.</p>
+      <p>Agora tente apertar essas teclas no seu teclado físico e veja o que acontece!</p>
+    </div>
+
+    <div class="teclado">
+      <div id="alt" class="tecla">ALT</div>
+      <div id="tab" class="tecla">TAB</div>
+    </div>
+
+    <div class="feedback" id="feedback">Aguardando você pressionar ALT + TAB no seu teclado...</div>
+
+    <button id="nextModule" onclick="irParaProximoModulo()">Ir para o Módulo 3</button>
+  </div>
+
+  <script>
+    const altTecla = document.getElementById('alt');
+    const tabTecla = document.getElementById('tab');
+    const feedback = document.getElementById('feedback');
+    const nextBtn = document.getElementById('nextModule');
+
+    let altPressionado = false;
+    let tabPressionado = false;
+    let acertou = false;
+    
+    // Detecta o pressionamento das teclas ALT + TAB
+    document.addEventListener('keydown', function (e) {
+      // Detecta o ALT
+      if (e.code === 'AltLeft' || e.code === 'AltRight') {
+        altPressionado = true;
+        altTecla.classList.add('ativa');  // Ativa a animação do ALT
+      }
+
+      // Detecta o TAB quando o ALT já estiver pressionado
+      if (e.code === 'Tab' && altPressionado) {
+        e.preventDefault(); // Impede o comportamento padrão do ALT + TAB
+
+        tabPressionado = true;
+        tabTecla.classList.add('ativa');  // Ativa a animação do TAB
+
+        if (!acertou) {
+          acertou = true;
+          feedback.innerHTML = `<span class="parabens">🎉 Parabéns! Você fez certinho!</span>`;
+          nextBtn.style.display = 'block'; // Exibe o botão para ir para o próximo módulo
+        }
+      }
+    });
+
+    // Reseta as teclas quando são soltas
+    document.addEventListener('keyup', function (e) {
+      if (e.code === 'AltLeft' || e.code === 'AltRight') {
+        altPressionado = false;
+        altTecla.classList.remove('ativa');
+      }
+
+      if (e.code === 'Tab') {
+        tabPressionado = false;
+        tabTecla.classList.remove('ativa');
+      }
+    });
+
+    function irParaProximoModulo() {
+      window.location.href = "modulo3.html"; // atualize conforme o caminho real
+    }
+  </script>
+</body>
+</html>
