@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
-var copiar = document.getElementById('copiar')
+
 
 
 copiar.addEventListener('click', function() {
