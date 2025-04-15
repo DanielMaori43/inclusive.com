@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Informática Básica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Curso de Informática Básica</h1>
+            <p>Vamos aprender a usar o computador de forma simples e prática!</p>
+        </header>
+        <main>
+            <section id="curso">
+                <h2>Como usar o Ctrl + C e Ctrl + V</h2>
+                <p id="instrucao">Passo 1: Selecione o texto abaixo e clique no botão "Copiar Texto".</p>
+                
+                <div class="demonstração">
+                    <p id="texto-copiado">Texto para ser copiado! Selecione e copie este texto.</p>
+                    <button id="copiar">Copiar Texto</button>
+                </div>
+
+                <div class="feedback">
+                    <p id="feedback"></p>
+                </div>
+
+                <p id="instrucao2">Agora, cole o texto copiado no campo abaixo:</p>
+                <textarea id="campo-colar" placeholder="Cole o texto aqui..."></textarea>
+                <button id="verificar-cola" onclick="verificarCola()">Verificar</button>
+
+                <button id="nextBtn" onclick="nextModule()" disabled>Próximo módulo</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
