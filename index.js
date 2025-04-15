@@ -1,22 +1,10 @@
-const express = require('express');
-const path = require('path');
-const app = express();
+// script.js
+document.getElementById('copiar').addEventListener('click', function () {
+    const textoCopiado = document.getElementById('texto-copiado').textContent;
 
-app.use(express.static(path.join(__dirname, 'public'))); // onde estão seus HTML/JS/CSS
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
-});
-
-
-
-copiar.addEventListener('click', function() {
-    const textoCopiado = document.getElementById('texto-copiado').textContent; // Pegando o texto
-    // Usando Clipboard API
-    navigator.clipboard.writeText(textoCopiado).then(function() {
+    navigator.clipboard.writeText(textoCopiado).then(function () {
         showFeedback("Texto copiado com sucesso! Agora cole abaixo.");
-    }).catch(function(err) {
+    }).catch(function (err) {
         console.error('Erro ao copiar o texto: ', err);
         showFeedback("Desculpe, ocorreu um erro ao tentar copiar o texto.");
     });
@@ -33,7 +21,7 @@ function verificarCola() {
 
     if (textoColado === textoEsperado) {
         document.getElementById('feedback').innerText = "Ótimo! Você colou o texto corretamente!";
-        document.getElementById('nextBtn').style.display = 'inline-block'; // Mostrar o botão de avançar
+        document.getElementById('nextBtn').style.display = 'inline-block';
         document.getElementById('nextBtn').disabled = false;
     } else {
         document.getElementById('feedback').innerText = "Ops! Parece que algo deu errado. Tente novamente.";
