@@ -5,91 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso de Informática Básica</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="/Public/style.css">
 </head>
 <style>
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+    }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-header {
-    text-align: center;
-    padding: 20px 0;
-}
+    header {
+        text-align: center;
+        padding: 20px 0;
+    }
 
-h1 {
-    font-size: 2.2em;
-    color: #4CAF50;
-}
+    h1 {
+        font-size: 2.2em;
+        color: #4CAF50;
+    }
 
-h2 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-}
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
 
-.demonstração {
-    background-color: #fff;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+    .demonstracao {
+        background-color: #fff;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 8px;
-    width: 100%;
-    margin-top: 10px;
-}
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 15px;
+        font-size: 1.2em;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 100%;
+        margin-top: 10px;
+    }
 
-button:hover {
-    background-color: #45a049;
-}
+    button:hover {
+        background-color: #45a049;
+    }
 
-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+    textarea {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 1.2em;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
 
-.feedback {
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #ff5722;
-}
+    .feedback {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #ff5722;
+    }
 
-#nextBtn {
-    background-color: #2196F3;
-    margin-top: 20px;
-    font-size: 1.4em;
-    width: 100%;
-    cursor: pointer;
-    display: none;
-}
+    #nextBtn {
+        background-color: #2196F3;
+        margin-top: 20px;
+        font-size: 1.4em;
+        width: 100%;
+        cursor: pointer;
+        display: none;
+    }
 </style>
 <body>
     <div class="container">
@@ -104,7 +103,7 @@ textarea {
                 
                 <div class="demonstracao">
                     <p id="texto-copiado">Texto para ser copiado! Selecione e copie este texto.</p>
-                    <button id="copiar">Copiar Texto</button>
+                    <button id="copiar" title="Copiar texto para a área de transferência">Copiar Texto</button>
                 </div>
 
                 <div class="feedback">
@@ -113,9 +112,9 @@ textarea {
 
                 <p id="instrucao2">Agora, cole o texto copiado no campo abaixo:</p>
                 <textarea id="campo-colar" placeholder="Cole o texto aqui..."></textarea>
-                <button id="verificar-cola" onclick="verificarCola()">Verificar</button>
+                <button id="verificar-cola">Verificar</button>
 
-                <button id="nextBtn" onclick="nextModule()" style="display:none;" disabled>Próximo módulo</button>
+                <button id="nextBtn" onclick="nextModule()" disabled>Próximo módulo</button>
             </section>
         </main>
     </div>
