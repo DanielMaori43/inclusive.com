@@ -1,4 +1,7 @@
-document.getElementById('copiar').addEventListener('click', function() {
+var copiar = document.getElementById('copiar')
+
+
+copiar.addEventListener('click', function() {
     const textoCopiado = document.getElementById('texto-copiado').textContent; // Pegando o texto
     // Usando Clipboard API
     navigator.clipboard.writeText(textoCopiado).then(function() {
