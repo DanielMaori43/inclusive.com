@@ -33,11 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event listener para o botão de verificar
-    document.getElementById('verificar-cola').addEventListener('click', verificarCola);
-
-    // Função para avançar para o próximo módulo
-    function nextModule() {
-        alert("Parabéns! Você completou o módulo. Vamos para o próximo!");
+    // Exibindo o link após a conclusão de uma ação, por exemplo, ao verificar o texto
+    function mostrarLink() {
+        const link = document.createElement('p');
+        link.innerHTML = 'Para acessar sua aplicação, clique aqui: <a href="https://inclusive-com-1.onrender.com" target="_blank">Acesse o curso</a>';
+        document.body.appendChild(link); // Adiciona o link ao final da página
     }
+
+    // Exemplo de como chamar a função após algum evento
+    // mostrarLink();
 });
