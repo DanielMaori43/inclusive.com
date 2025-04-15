@@ -3,122 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Informática Básica</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Curso de Informática Básica - Módulo 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2.2em;
+        }
+
+        .demonstracao {
+            background-color: #fff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .texto-copiado {
+            color: red;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Teclas animadas */
+        .tecla {
+            display: inline-block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 15px 25px;
+            margin: 10px;
+            font-size: 1.2em;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .tecla.ativa {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+            box-shadow: 0 0 10px #4CAF50;
+        }
+
+        /* Feedback de status */
+        .feedback {
+            font-size: 1.3em;
+            color: #2196F3;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .parabens {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        /* Botão de avanço */
+        #nextModule {
+            display: none;
+            margin-top: 30px;
+            padding: 15px;
+            width: 100%;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        #nextModule:hover {
+            background-color: #0b79e4;
+        }
+    </style>
 </head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        color: #333;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    header {
-        text-align: center;
-        padding: 20px 0;
-    }
-
-    h1 {
-        font-size: 2.2em;
-        color: #4CAF50;
-    }
-
-    h2 {
-        font-size: 1.8em;
-        margin-bottom: 20px;
-    }
-
-    .demonstracao {
-        background-color: #fff;
-        padding: 15px;
-        margin: 20px 0;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-
-    button {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 15px;
-        font-size: 1.2em;
-        cursor: pointer;
-        border-radius: 8px;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-
-    textarea {
-        width: 100%;
-        height: 100px;
-        padding: 10px;
-        margin-top: 10px;
-        font-size: 1.2em;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-
-    .feedback {
-        margin-top: 20px;
-        font-size: 1.2em;
-        color: #ff5722;
-    }
-
-    #nextBtn {
-        background-color: #2196F3;
-        margin-top: 20px;
-        font-size: 1.4em;
-        width: 100%;
-        cursor: pointer;
-        display: none;
-    }
-</style>
 <body>
     <div class="container">
         <header>
             <h1>Curso de Informática Básica</h1>
             <p>Vamos aprender a usar o computador de forma simples e prática!</p>
         </header>
+
         <main>
             <section id="curso">
                 <h2>Como usar o Ctrl + C e Ctrl + V</h2>
                 <p id="instrucao">Passo 1: Selecione o texto abaixo e clique no botão "Copiar Texto".</p>
-                
+
+                <!-- Texto em vermelho para copiar -->
                 <div class="demonstracao">
-                    <p id="texto-copiado">Texto para ser copiado! Selecione e copie este texto.</p>
-                    <button id="copiar" title="Copiar texto para a área de transferência">Copiar Texto</button>
+                    <p id="texto-copiado" class="texto-copiado">Texto para ser copiado! Selecione e copie este texto. Você consegue!</p>
                 </div>
 
-                <div class="feedback">
-                    <p id="feedback"></p>
+                <!-- Teclado virtual para o Ctrl + C -->
+                <div class="demonstracao">
+                    <span id="ctrl1" class="tecla">Ctrl</span>
+                    <span id="c" class="tecla">C</span>
                 </div>
 
                 <p id="instrucao2">Agora, cole o texto copiado no campo abaixo:</p>
-                <textarea id="campo-colar" placeholder="Cole o texto aqui..."></textarea>
-                <button id="verificar-cola">Verificar</button>
 
-                <button id="nextBtn" onclick="nextModule()" disabled>Próximo módulo</button>
+                <textarea id="campo-colar" placeholder="Cole o texto aqui..."></textarea>
+                <div id="feedback" class="feedback"></div>
+
+                <!-- Teclado virtual para o Ctrl + V -->
+                <div class="demonstracao">
+                    <span id="ctrl2" class="tecla">Ctrl</span>
+                    <span id="v" class="tecla">V</span>
+                </div>
+
+                <!-- Botão de próximo módulo -->
+                <button id="nextModule" onclick="nextModule()">Próximo Módulo</button>
             </section>
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctrl1 = document.getElementById('ctrl1');
+            const c = document.getElementById('c');
+            const v = document.getElementById('v');
+            const feedback = document.getElementById('feedback');
+            const campoColar = document.getElementById('campo-colar');
+            const nextModule = document.getElementById('nextModule');
+            const textoCopiado = document.getElementById('texto-copiado').textContent;
+
+            // Função para simular a animação das teclas
+            function ativarTecla(tecla) {
+                tecla.classList.add('ativa');
+            }
+
+            function resetarTeclas() {
+                ctrl1.classList.remove('ativa');
+                c.classList.remove('ativa');
+                v.classList.remove('ativa');
+            }
+
+            // Detectando a tecla Ctrl + C (primeira parte)
+            document.addEventListener('keydown', function (event) {
+                if (event.ctrlKey && event.key === 'c') {
+                    ativarTecla(ctrl1);
+                    ativarTecla(c);
+                    feedback.innerHTML = ''; // Limpar feedback
+                }
+            });
+
+            // Detectando a tecla Ctrl + V (segunda parte)
+            document.addEventListener('keydown', function (event) {
+                if (event.ctrlKey && event.key === 'v') {
+                    ativarTecla(ctrl2);
+                    ativarTecla(v);
+
+                    // Verificar se o texto colado está correto
+                    if (campoColar.value === textoCopiado) {
+                        feedback.innerHTML = '<span class="parabens">Parabéns! Você fez tudo certo.</span>';
+                        nextModule.style.display = 'block'; // Mostrar botão para avançar
+                    }
+                }
+            });
+
+            // Garantir que o usuário cole o texto corretamente
+            campoColar.addEventListener('input', function () {
+                if (campoColar.value === textoCopiado) {
+                    feedback.innerHTML = '<span class="parabens">Parabéns! Você fez tudo certo.</span>';
+                    nextModule.style.display = 'block'; // Mostrar botão para avançar
+                } else {
+                    feedback.innerHTML = ''; // Limpar feedback se o texto estiver incorreto
+                    nextModule.style.display = 'none'; // Esconder o botão se o texto estiver incorreto
+                }
+            });
+        });
+
+        function nextModule() {
+            alert('Pronto para o próximo módulo!');
+            // Redirecionar ou avançar para a próxima etapa do curso
+        }
+    </script>
 </body>
 </html>
