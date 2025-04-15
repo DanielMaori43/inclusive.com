@@ -1,17 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const copiar = document.getElementById('copiar');
     const feedback = document.getElementById('feedback');
     const campoColar = document.getElementById('campo-colar');
-    const textoCopiado = document.getElementById('texto-copiado').textContent; // Pegando o texto fixo para copiar
+    const textoCopiado = document.getElementById('texto-copiado').textContent;
+    const verificarBtn = document.getElementById('verificar-cola');
+    const nextBtn = document.getElementById('nextBtn');
 
-    copiar.addEventListener('click', function() {
-        // Usando Clipboard API para copiar o texto
-        navigator.clipboard.writeText(textoCopiado).then(function() {
+    copiar.addEventListener('click', function () {
+        navigator.clipboard.writeText(textoCopiado).then(function () {
             showFeedback("Texto copiado com sucesso! Agora cole abaixo.");
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.error('Erro ao copiar o texto: ', err);
             showFeedback("Desculpe, ocorreu um erro ao tentar copiar o texto.");
         });
+    });
+
+    verificarBtn.addEventListener('click', function () {
+        verificarCola();
     });
 
     function showFeedback(mensagem) {
@@ -19,27 +24,32 @@ document.addEventListener('DOMContentLoaded', function() {
         campoColar.focus();
     }
 
-    function verificarCola() {
+    window.verificarCola = function () {
         const textoEsperado = "Texto para ser copiado! Selecione e copie este texto.";
-        const textoColado = campoColar.value;
+        const textoColado = campoColar.value.trim();
 
         if (textoColado === textoEsperado) {
-            feedback.innerText = "Ótimo! Você colou o texto corretamente!";
-            const nextBtn = document.getElementById('nextBtn');
-            nextBtn.style.display = 'inline-block'; // Mostrar o botão de avançar
+            feedback.innerText = "✅ Ótimo! Você colou o texto corretamente!";
+            campoColar.style.border = "2px solid green";
+            nextBtn.style.display = 'inline-block';
             nextBtn.disabled = false;
         } else {
-            feedback.innerText = "Ops! Parece que algo deu errado. Tente novamente.";
+            feedback.innerText = "❌ Ops! Parece que algo deu errado. Tente novamente.";
+            campoColar.style.border = "2px solid red";
         }
-    }
+    };
 
-    // Exibindo o link após a conclusão de uma ação, por exemplo, ao verificar o texto
+    window.nextModule = function () {
+        // Você pode alterar aqui para o link real do próximo módulo
+        window.location.href = "modulo2.html"; 
+    };
+
+    // Exemplo opcional: adicionar um link externo ao final da página após concluir
     function mostrarLink() {
         const link = document.createElement('p');
         link.innerHTML = 'Para acessar sua aplicação, clique aqui: <a href="https://inclusive-com-1.onrender.com/curso" target="_blank">Acesse o curso</a>';
-        document.body.appendChild(link); // Adiciona o link ao final da página
+        document.body.appendChild(link);
     }
 
-    // Exemplo de como chamar a função após algum evento
-    // mostrarLink();
+    // Chame mostrarLink() se quiser mostrar esse link após a conclusão
 });
